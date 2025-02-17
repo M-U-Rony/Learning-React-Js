@@ -9,7 +9,7 @@ export default function Nav({Fetch}){
 
         <div className="h-[80px] flex items-center justify-between p-7 bg-sky-200">
 
-            <p className="text-gray-600 font-bold text-[20px]"><Link to="/">FoodRecipe</Link></p>
+            <Link to="/"  className="text-gray-600 font-bold text-[20px]">FoodRecipe</Link>
 
             <form action={(formdata)=> {Fetch(formdata.get("recipename")); navigate("/")}}>
 
@@ -19,7 +19,7 @@ export default function Nav({Fetch}){
             
             </form>
 
-            <p className="text-gray-600 font-bold text-[20px]"><Link to="/favourite">Favourite</Link></p>
+            <Link to="/favourite" className="text-gray-600 font-bold text-[20px]">Favourite</Link>
 
             <Outlet/>
 

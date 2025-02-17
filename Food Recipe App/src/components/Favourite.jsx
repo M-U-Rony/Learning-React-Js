@@ -25,8 +25,7 @@ export default function Favourite({favourite,fetchRecipeDetails}){
             
                         <h1 className="text-xl truncate font-bold">{ele.title}</h1>
             
-                        <button onClick={()=>showDeatils(ele)} className="text-white h-[50px] w-[180px] bg-black rounded-md font-bold">
-                        <Link to="/details">Recipe Details</Link></button>
+                        <Link to="/details"  onClick={()=>showDeatils(ele)} className="flex items-center justify-center text-white h-[50px] w-[180px] bg-black rounded-md font-bold">Recipe Details</Link>
             
                         <Outlet/>
                         
