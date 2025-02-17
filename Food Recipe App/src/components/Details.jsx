@@ -1,6 +1,9 @@
-import { useState,useEffect } from "react";
+import { useContext } from "react";
+import { GlobalContext } from "../context/Context";
 
-export default function Details({details, addToFavourite,deleteFromFavourite,addOrRemove}){
+export default function Details(){
+
+    const {details,addToFavourite,deleteFromFavourite,addOrRemove} = useContext(GlobalContext);
 
     if (!details || !details.ingredients) {
         return <div>Loading...</div>;
@@ -22,7 +25,7 @@ export default function Details({details, addToFavourite,deleteFromFavourite,add
                 { addOrRemove ? 
                 <button className="text-white h-[50px] w-[180px] bg-black rounded-md font-bold mt-4" onClick={()=> addToFavourite(details)}>Add to Favourite</button>
                 :
-                <button className="text-white h-[50px] w-[180px] bg-black rounded-md font-bold mt-4" onClick={()=> deleteFromFavourite(details)}>Remove From Favourite</button>
+                <button className="text-white h-[50px] w-[210px] bg-black rounded-md font-bold mt-4" onClick={()=> deleteFromFavourite(details)}>Remove From Favourite</button>
 
                 }
 

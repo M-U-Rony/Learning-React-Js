@@ -1,13 +1,18 @@
+import { useContext } from "react";
 import { Link,Outlet } from "react-router-dom";
+import { GlobalContext } from "../context/Context";
 
-export default function Favourite({favourite,fetchRecipeDetails}){
+export default function Favourite(){
+
+
+    const {fetchRecipeDetails,favourite} = useContext(GlobalContext);
 
     function showDeatils(ele){
         fetchRecipeDetails(ele.recipe_id);
     }
 
     if(favourite.length===0){
-        return <p>You dont have any favourite item</p>
+        return (<p className="relative  top-[200px] text-center text-[30px] font-semibold">You don't have any favourite item</p>)
       }
 
     return(

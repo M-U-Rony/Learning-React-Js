@@ -1,10 +1,10 @@
+import { useContext } from "react";
 import { Link,Outlet } from "react-router-dom"
+import { GlobalContext } from "../context/Context";
 
-export default function Card({ item,fetchRecipeDetails }) {
+export default function Card({ item }) {
 
-    function showDeatils(){
-        fetchRecipeDetails(item.recipe_id);
-    }
+    const {fetchRecipeDetails} = useContext(GlobalContext);
 
     return (
 
@@ -16,7 +16,7 @@ export default function Card({ item,fetchRecipeDetails }) {
 
             <h1 className="text-xl truncate font-bold">{item.title}</h1>
 
-            <Link to="/details" onClick={showDeatils} className="flex items-center justify-center text-white h-[50px] w-[180px] bg-black rounded-md font-bold">Recipe Details</Link>
+            <Link to="/details" onClick={()=> fetchRecipeDetails(item.recipe_id)} className="flex items-center justify-center text-white h-[50px] w-[180px] bg-black rounded-md font-bold">Recipe Details</Link>
 
             <Outlet/>
 

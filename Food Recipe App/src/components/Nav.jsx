@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { Link,Outlet,useNavigate } from "react-router-dom"
+import {GlobalContext} from '../context/Context'
 
-export default function Nav({Fetch}){
+
+export default function Nav(){
+
+    const {fetchRecipe} = useContext(GlobalContext)
 
     const navigate = useNavigate();
 
@@ -11,7 +16,7 @@ export default function Nav({Fetch}){
 
             <Link to="/"  className="text-gray-600 font-bold text-[20px]">FoodRecipe</Link>
 
-            <form action={(formdata)=> {Fetch(formdata.get("recipename")); navigate("/")}}>
+            <form action={(formdata)=> {fetchRecipe(formdata.get("recipename")); navigate("/")}}>
 
             <input type="text" name="recipename" placeholder="Search Recipe" className="p-2 rounded-full w-[320px]"/>
 
